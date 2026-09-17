@@ -93,7 +93,8 @@ p{margin:0}
 .hero .ctas{display:flex;gap:10px;flex-wrap:wrap}
 .panel{background:var(--accent);padding:clamp(20px,3vw,40px) 0 clamp(20px,3vw,40px) clamp(20px,3vw,40px)}
 .panel .shot{aspect-ratio:4/3;background:var(--paper);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font:12px/1.6 var(--mono);color:var(--ink-500)}
-.panel img{aspect-ratio:2752/1536;object-fit:cover;width:100%;height:auto;display:block}
+.panel .video-wrap{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--ink-900)}
+.panel .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
 @media (max-width:820px){.hero .wrap{grid-template-columns:1fr;gap:28px}.panel{padding:16px 0 16px 16px}}
 
 /* ---- rail divider (the Flow mark's rail, one per section boundary) ---- */
@@ -174,12 +175,12 @@ section.block{padding:clamp(56px,8vw,96px) 0 0}
 
 /* book */
 .book{padding:clamp(56px,8vw,96px) 0}
-.book .card{border:1px solid var(--line);background:var(--surface);padding:clamp(28px,4vw,48px);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.book .card{border:1px solid var(--line);background:var(--surface);background-image:url(assets/hero-storyboard.png);background-repeat:no-repeat;background-position:right 20px top 20px;background-size:200px auto;padding:clamp(28px,4vw,48px);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
 .book h2{font-size:clamp(26px,3vw,38px);margin-bottom:12px}
 .book p{color:var(--fg-2);max-width:52ch}
 .book .alt{margin-top:14px;font:500 13px var(--mono);color:var(--fg-3)}
 .book .alt a{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
-@media (max-width:820px){.book .card{grid-template-columns:1fr}}
+@media (max-width:820px){.book .card{grid-template-columns:1fr;background-size:130px auto;background-position:right 16px top 16px}}
 
 footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:14px;color:var(--fg-2)}
 footer .wrap{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
@@ -226,7 +227,9 @@ footer a{text-decoration:underline;text-underline-offset:3px}
         <div class="ctas"><a class="btn" href="https://calendly.com/yeikkomae/30min" target="_blank" rel="noopener">Book a call</a><a class="btn ghost" href="#work">See the work</a></div>
       </div>
       <div class="panel">
-        <img src="assets/hero-storyboard.png" width="2752" height="1536" alt="Eight-panel illustrated story: leads slipping through the cracks, too much work and not enough hands, a client finds the website, a call gets booked, the right services mapped out, systems start running themselves, more clients with less chaos, and Eikko Ybanez ready to book a call today" fetchpriority="high">
+        <div class="video-wrap">
+          <iframe src="https://www.loom.com/embed/502b67a5d3b74f0e89698452e5f94d54?autoplay=1&hide_owner=true&hide_title=true&hide_share=true&hideEmbedTopBar=true" title="Eikko Ybanez introduction video" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -244,42 +247,13 @@ footer a{text-decoration:underline;text-underline-offset:3px}
 
   <section class="block" id="work" aria-labelledby="h-work">
     <div class="wrap">
-      <div class="sec-head rv"><h2 id="h-work">Work</h2><p>In the order I started them. What each one runs on, and what I own inside it.</p></div>
+      <div class="sec-head rv"><h2 id="h-work">Work</h2><p>Latest to oldest. What each one runs on, and what I own inside it.</p></div>
 
       <article class="work-row rv">
-        <div class="k"><b>Phygtl, Inc</b>Software startup, Palo Alto CA</div>
-        <div><h3>Investor outreach and email project management</h3>
-          <p>Sourced and verified investor profiles in Sales Navigator and Rocketreach; ran the outreach in Smartlead with an 84% peak positive reply rate and 55+ meetings booked. Later managed the summer internship recruitment pipeline end to end.</p>
-          <div class="tools"><span class="tag">Smartlead</span><span class="tag">Sales Navigator</span><span class="tag">Rocketreach</span></div></div>
-      </article>
-      <article class="work-row rv">
-        <div class="k"><b>Creative Studio Productions</b>Creative studio, US</div>
-        <div><h3>Data entry and lead generation</h3>
-          <p>Sourced and organized qualified leads to support the sales team's outreach.</p>
-          <div class="tools"><span class="tag">Sales Navigator</span><span class="tag">Apollo</span></div></div>
-      </article>
-      <article class="work-row rv">
-        <div class="k"><b>BalanceBoat</b>Wellness retreat company</div>
-        <div><h3>Email and WhatsApp outreach</h3>
-          <p>Ran lead generation and outreach campaigns for a wellness retreat and training company.</p>
-          <div class="tools"><span class="tag">Instantly</span><span class="tag">WhatsApp</span></div></div>
-      </article>
-      <article class="work-row rv">
-        <div class="k"><b>Satlas</b>Cold email and lead generation agency, Australia</div>
-        <div><h3>Own the sending infrastructure end to end</h3>
-          <p>25 domains and 60 mailboxes across two providers. Daily inbox health and warmup checks, monthly deliverability audits, the migration from Instantly to PlusVibe, list building in Apollo, sequence refreshes and reply handling. Also builds white-labelled campaigns for Satlas's own clients.</p>
-          <div class="tools"><span class="tag">PlusVibe</span><span class="tag">Apollo</span><span class="tag">Zapmail</span><span class="tag">InboxKit</span><span class="tag">Porkbun</span></div></div>
-      </article>
-      <article class="work-row rv">
-        <div class="k"><b>Albert Scott</b>Amazon marketplace growth agency, US</div>
-        <div><h3>Run the reply pipeline on a live Smartlead account</h3>
-          <p>Prospect tagging against the agency's reply taxonomy, Pipedrive updates, Calendly booking routing and blocklist management. Booking to CRM to blocklist runs as one automation. Copy stays inside the client's written standards.</p>
-          <div class="tools"><span class="tag">Smartlead</span><span class="tag">Pipedrive</span><span class="tag">Calendly</span></div></div>
-      </article>
-      <article class="work-row rv">
-        <div class="k"><b>HivePoint Group</b>Revenue operations, Remote</div>
-        <div><h3>GTM execution: lead databases, outbound systems and CRM integrity</h3>
-          <p>Managed lead databases, outbound systems and CRM hygiene so the revenue team could focus on closing.</p></div>
+        <div class="k"><b>Penji</b>Design subscription company, US</div>
+        <div><h3>Build and work a global database of marketing agencies</h3>
+          <p>LinkedIn outreach in Dripify, warm replies routed to closers within the hour, weekly report every Friday.</p>
+          <div class="tools"><span class="tag">Dripify</span><span class="tag">Gojiberry</span><span class="tag">Hunter</span><span class="tag">Findymail</span></div></div>
       </article>
       <article class="work-row rv">
         <div class="k"><b>MyCloudGCS</b>Fintech for accounting firms, Orlando FL</div>
@@ -288,10 +262,39 @@ footer a{text-decoration:underline;text-underline-offset:3px}
           <div class="tools"><span class="tag">Apollo</span><span class="tag">HubSpot</span><span class="tag">Lemlist</span><span class="tag">Reddit</span></div></div>
       </article>
       <article class="work-row rv">
-        <div class="k"><b>Penji</b>Design subscription company, US</div>
-        <div><h3>Build and work a global database of marketing agencies</h3>
-          <p>LinkedIn outreach in Dripify, warm replies routed to closers within the hour, weekly report every Friday.</p>
-          <div class="tools"><span class="tag">Dripify</span><span class="tag">Gojiberry</span><span class="tag">Hunter</span><span class="tag">Findymail</span></div></div>
+        <div class="k"><b>HivePoint Group</b>Revenue operations, Remote</div>
+        <div><h3>GTM execution: lead databases, outbound systems and CRM integrity</h3>
+          <p>Managed lead databases, outbound systems and CRM hygiene so the revenue team could focus on closing.</p></div>
+      </article>
+      <article class="work-row rv">
+        <div class="k"><b>Albert Scott</b>Amazon marketplace growth agency, US</div>
+        <div><h3>Run the reply pipeline on a live Smartlead account</h3>
+          <p>Prospect tagging against the agency's reply taxonomy, Pipedrive updates, Calendly booking routing and blocklist management. Booking to CRM to blocklist runs as one automation. Copy stays inside the client's written standards.</p>
+          <div class="tools"><span class="tag">Smartlead</span><span class="tag">Pipedrive</span><span class="tag">Calendly</span></div></div>
+      </article>
+      <article class="work-row rv">
+        <div class="k"><b>Satlas</b>Cold email and lead generation agency, Australia</div>
+        <div><h3>Own the sending infrastructure end to end</h3>
+          <p>25 domains and 60 mailboxes across two providers. Daily inbox health and warmup checks, monthly deliverability audits, the migration from Instantly to PlusVibe, list building in Apollo, sequence refreshes and reply handling. Also builds white-labelled campaigns for Satlas's own clients.</p>
+          <div class="tools"><span class="tag">PlusVibe</span><span class="tag">Apollo</span><span class="tag">Zapmail</span><span class="tag">InboxKit</span><span class="tag">Porkbun</span></div></div>
+      </article>
+      <article class="work-row rv">
+        <div class="k"><b>BalanceBoat</b>Wellness retreat company</div>
+        <div><h3>Email and WhatsApp outreach</h3>
+          <p>Ran lead generation and outreach campaigns for a wellness retreat and training company.</p>
+          <div class="tools"><span class="tag">Instantly</span><span class="tag">WhatsApp</span></div></div>
+      </article>
+      <article class="work-row rv">
+        <div class="k"><b>Creative Studio Productions</b>Creative studio, US</div>
+        <div><h3>Data entry and lead generation</h3>
+          <p>Sourced and organized qualified leads to support the sales team's outreach.</p>
+          <div class="tools"><span class="tag">Sales Navigator</span><span class="tag">Apollo</span></div></div>
+      </article>
+      <article class="work-row rv">
+        <div class="k"><b>Phygtl, Inc</b>Software startup, Palo Alto CA</div>
+        <div><h3>Investor outreach and email project management</h3>
+          <p>Sourced and verified investor profiles in Sales Navigator and Rocketreach; ran the outreach in Smartlead with an 84% peak positive reply rate and 55+ meetings booked. Later managed the summer internship recruitment pipeline end to end.</p>
+          <div class="tools"><span class="tag">Smartlead</span><span class="tag">Sales Navigator</span><span class="tag">Rocketreach</span></div></div>
       </article>
 
       <div class="shots rv">
