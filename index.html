@@ -50,16 +50,16 @@ p{margin:0}
 .lockup{display:flex;align-items:center;gap:10px}
 /* wordmark beside the portrait: handwritten, revealed left to right like a pen stroke. Nav only; the lockup files keep Schibsted Grotesk (Brand Decisions 2026-09-08). */
 .lockup .wm{font:600 26px/1 "Caveat","Segoe Script","Bradley Hand",cursive;letter-spacing:.01em;color:var(--fg);white-space:nowrap;padding-right:6px}
-.lockup.intro .wm{-webkit-mask-image:linear-gradient(90deg,#000 45%,transparent 55%);mask-image:linear-gradient(90deg,#000 45%,transparent 55%);-webkit-mask-size:220% 100%;mask-size:220% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;animation:wm-write 3200ms cubic-bezier(.45,0,.55,1) 1800ms both}
+.lockup.intro .wm{-webkit-mask-image:linear-gradient(90deg,#000 45%,transparent 55%);mask-image:linear-gradient(90deg,#000 45%,transparent 55%);-webkit-mask-size:220% 100%;mask-size:220% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;animation:wm-write 6400ms cubic-bezier(.45,0,.55,1) 3600ms both}
 @keyframes wm-write{from{-webkit-mask-position:120% 0;mask-position:120% 0}to{-webkit-mask-position:0% 0;mask-position:0% 0}}
 @media (prefers-reduced-motion:reduce){.lockup.intro .wm{animation:none;-webkit-mask-image:none;mask-image:none}}
 .lockup .pmark{width:36px;height:36px;color:var(--fg);overflow:visible}
 /* logo intro: the mark assembles once per session. Body rises, hair scales in, face wipes down, features settle. 700ms total, ease-out, off under reduced motion. */
 .pm-body,.pm-hair,.pm-face,.pm-feat{transform-box:fill-box;transform-origin:50% 100%}
-.lockup.intro .pm-body{animation:pm-rise 1500ms var(--ease-out) both}
-.lockup.intro .pm-hair{animation:pm-grow 1600ms var(--ease-out) 420ms both}
-.lockup.intro .pm-face{animation:pm-wipe 1300ms var(--ease-out) 1050ms both}
-.lockup.intro .pm-feat{animation:pm-settle 1100ms var(--ease-out) 1700ms both}
+.lockup.intro .pm-body{animation:pm-rise 3000ms var(--ease-out) both}
+.lockup.intro .pm-hair{animation:pm-grow 3200ms var(--ease-out) 840ms both}
+.lockup.intro .pm-face{animation:pm-wipe 2600ms var(--ease-out) 2100ms both}
+.lockup.intro .pm-feat{animation:pm-settle 2200ms var(--ease-out) 3400ms both}
 @keyframes pm-rise{from{transform:translateY(18%);opacity:0}to{transform:none;opacity:1}}
 @keyframes pm-grow{from{transform:scale(.86);opacity:0}to{transform:none;opacity:1}}
 @keyframes pm-wipe{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0)}}
@@ -103,8 +103,8 @@ p{margin:0}
 .rail i{left:0}.rail b{left:30px}
 .rail em{position:absolute;right:-1px;top:-10px;border-left:18px solid var(--fg);border-top:8px solid transparent;border-bottom:8px solid transparent}
 .rail .run{opacity:0}
-.rail.sweep .run{animation:travel 10s var(--ease-in-out) 1 both}
-.rail.sweep .run.two{animation-delay:1s}
+.rail.sweep .run{animation:travel 20s var(--ease-in-out) 1 both}
+.rail.sweep .run.two{animation-delay:2s}
 @keyframes travel{0%{transform:translateX(0);opacity:1}85%{opacity:1}100%{transform:translateX(var(--travel,900px));opacity:0}}
 @media (prefers-reduced-motion:reduce){.rail.sweep .run{animation:none}}
 @media (max-width:820px){.rail{margin-inline:24px}}
