@@ -91,11 +91,11 @@ p{margin:0}
 .hero h1{font-size:clamp(38px,4.2vw,56px)}
 .hero .lead{font-size:clamp(17px,1.5vw,19px);color:var(--fg-2);max-width:36ch;margin:22px 0 28px}
 .hero .ctas{display:flex;gap:10px;flex-wrap:wrap}
-.panel{background:var(--accent);padding:clamp(20px,3vw,40px) 0 clamp(20px,3vw,40px) clamp(20px,3vw,40px)}
+.panel{background:var(--accent)}
 .panel .shot{aspect-ratio:4/3;background:var(--paper);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font:12px/1.6 var(--mono);color:var(--ink-500)}
-.panel .video-wrap{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--ink-900)}
+.panel .video-wrap{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--ink-900);display:block}
 .panel .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
-@media (max-width:820px){.hero .wrap{grid-template-columns:1fr;gap:28px}.panel{padding:16px 0 16px 16px}}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr;gap:28px}}
 
 /* ---- rail divider (the Flow mark's rail, one per section boundary) ---- */
 .rail{position:relative;height:0;border-top:4px solid var(--fg);margin:clamp(40px,6vw,64px) auto 0;max-width:calc(var(--container) - 48px)}
@@ -111,7 +111,7 @@ p{margin:0}
 
 /* ---- numbers ---- */
 .numbers{padding:36px 0 0}
-.numbers .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.numbers .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
 .numbers b{display:block;font:500 26px/1 var(--mono);margin-bottom:8px}
 .numbers span{font-size:14px;color:var(--fg-2)}
 @media (max-width:820px){.numbers .wrap{grid-template-columns:1fr 1fr}}
@@ -175,12 +175,12 @@ section.block{padding:clamp(56px,8vw,96px) 0 0}
 
 /* book */
 .book{padding:clamp(56px,8vw,96px) 0}
-.book .card{border:1px solid var(--line);background:var(--surface);background-image:url(assets/hero-storyboard.png);background-repeat:no-repeat;background-position:right 20px top 20px;background-size:200px auto;padding:clamp(28px,4vw,48px);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.book .card{border:1px solid var(--line);background-color:var(--surface);background-image:linear-gradient(to left,transparent,var(--surface) 65%),url(assets/hero-storyboard.png);background-repeat:no-repeat,no-repeat;background-position:0 0,right center;background-size:100% 100%,auto 100%;padding:clamp(28px,4vw,48px);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
 .book h2{font-size:clamp(26px,3vw,38px);margin-bottom:12px}
 .book p{color:var(--fg-2);max-width:52ch}
 .book .alt{margin-top:14px;font:500 13px var(--mono);color:var(--fg-3)}
 .book .alt a{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
-@media (max-width:820px){.book .card{grid-template-columns:1fr;background-size:130px auto;background-position:right 16px top 16px}}
+@media (max-width:820px){.book .card{grid-template-columns:1fr;background-image:none}}
 
 footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:14px;color:var(--fg-2)}
 footer .wrap{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
@@ -228,7 +228,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       </div>
       <div class="panel">
         <div class="video-wrap">
-          <iframe src="https://www.loom.com/embed/502b67a5d3b74f0e89698452e5f94d54?autoplay=1&hide_owner=true&hide_title=true&hide_share=true&hideEmbedTopBar=true" title="Eikko Ybanez introduction video" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+          <iframe src="https://www.loom.com/embed/502b67a5d3b74f0e89698452e5f94d54?autoplay=1" title="Eikko Ybanez introduction video" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -239,6 +239,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   <section class="numbers" aria-label="Scale">
     <div class="wrap">
       <div class="rv"><b>100</b><span>campaigns run</span></div>
+      <div class="rv"><b>50k+</b><span>leads scraped</span></div>
       <div class="rv"><b>20</b><span>automated workflows built</span></div>
       <div class="rv"><b>1</b><span>WordPress site, SEO and GEO</span></div>
       <div class="rv"><b>2</b><span>active ad campaigns</span></div>
