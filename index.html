@@ -183,6 +183,46 @@ section.block{padding:clamp(56px,8vw,96px) 0 0}
 .book .alt a{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
 @media (max-width:820px){.book .card{grid-template-columns:1fr;background-image:none}}
 
+/* ---- testimonials: after About, before Book. Square cards, cobalt quote mark, scroll-snap track that bleeds to the right edge ---- */
+.testimonials{overflow-x:clip}
+.testimonials .wrap{display:grid;grid-template-columns:320px minmax(0,1fr);gap:48px;align-items:start}
+.t-side{position:sticky;top:96px}
+.t-mark{display:block;font:800 120px/.8 var(--display);color:var(--accent);height:64px;margin-bottom:20px;user-select:none}
+.t-side h2{max-width:8ch}
+.t-ctrl{display:flex;align-items:center;gap:14px;margin-top:32px}
+.t-btn{width:44px;height:44px;border-radius:999px;border:1.5px solid var(--line-strong);background:transparent;color:var(--fg);font:600 18px/1 var(--sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform 160ms var(--ease-out),background-color 160ms ease,opacity 160ms ease}
+.t-btn:active{transform:scale(.97)}
+.t-btn:disabled{opacity:.3;cursor:default}
+@media (hover:hover) and (pointer:fine){.t-btn:not(:disabled):hover{background:var(--ink-100);color:var(--ink-900)}}
+.t-prog{flex:1;max-width:140px;height:2px;background:var(--line);position:relative;overflow:hidden}
+.t-prog i{position:absolute;inset:0;background:var(--accent);transform-origin:0 50%;transform:scaleX(var(--p,.2))}
+.t-track{--bleed:max(24px,calc((100vw - var(--container)) / 2 + 24px));display:flex;gap:24px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:2px;margin-right:calc(-1 * var(--bleed));padding:2px var(--bleed) 28px 2px;scrollbar-width:none;overscroll-behavior-x:contain}
+.t-track::-webkit-scrollbar{display:none}
+.t-card{flex:0 0 340px;scroll-snap-align:start;margin:0}
+.t-bubble{position:relative;border:1px solid var(--line);background:var(--surface);padding:28px 28px 22px}
+.t-bubble::before,.t-bubble::after{content:"";position:absolute;clip-path:polygon(0 0,100% 0,0 100%)}
+.t-bubble::before{left:31px;bottom:-24px;width:24px;height:24px;background:var(--line)}
+.t-bubble::after{left:32px;bottom:-22px;width:22px;height:23px;background:var(--surface)}
+.t-q{margin:0;font-size:17px;line-height:1.6;color:var(--fg);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;line-clamp:5;overflow:hidden}
+.t-card.open .t-q{-webkit-line-clamp:unset;line-clamp:none;display:block}
+.t-more{margin-top:12px;padding:0;border:0;background:none;font:600 14px var(--sans);color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.t-more[hidden]{display:none}
+@media (prefers-color-scheme:dark){.t-more{color:var(--accent-700)}}
+.t-card figcaption{display:flex;align-items:center;gap:12px;margin-top:34px}
+.t-av{width:48px;height:48px;flex:0 0 48px;border:1px solid var(--line);object-fit:cover;background:var(--accent-100);display:flex;align-items:center;justify-content:center;font:500 14px var(--mono);color:var(--fg)}
+.t-card figcaption b{display:block;font-weight:600;font-size:15px}
+.t-card figcaption span span{font:500 13px var(--mono);color:var(--fg-3)}
+.t-card.pending .t-q{color:var(--fg-3)}
+@media (max-width:820px){
+  .testimonials .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
+  .t-side{position:static}
+  .t-mark{font-size:88px;height:46px;margin-bottom:14px}
+  .t-side h2{max-width:none}
+  .t-ctrl{margin-top:20px}
+  .t-card{flex-basis:min(82vw,340px)}
+}
+@media (prefers-reduced-motion:reduce){.t-track{scroll-behavior:auto}}
+
 footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:14px;color:var(--fg-2)}
 footer .wrap{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
 footer .links{margin-left:auto;display:flex;gap:18px}
@@ -212,7 +252,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     </a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="tabs">Menu</button>
     <nav class="tabs" id="tabs" aria-label="Sections">
-      <a href="#work">Work</a><a href="#systems">Systems</a><a href="#tools">Tools</a><a href="#about">About</a><a href="assets/eikko-ybanez-resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="#work">Work</a><a href="#tools">Tools</a><a href="#about">About</a><a href="#testimonials">Testimonials</a><a href="assets/eikko-ybanez-resume.pdf" target="_blank" rel="noopener">Resume</a>
       <a class="btn sm" href="https://calendly.com/yeikkomae/30min" target="_blank" rel="noopener">Book a call</a>
     </nav>
   </div>
@@ -380,6 +420,42 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     </div>
   </section>
 
+  <section class="block testimonials" id="testimonials" aria-labelledby="h-testi">
+    <div class="wrap">
+      <div class="t-side rv">
+        <span class="t-mark" aria-hidden="true">&ldquo;</span>
+        <h2 id="h-testi">What clients say</h2>
+        <div class="t-ctrl">
+          <button class="t-btn" id="tPrev" type="button" aria-label="Previous testimonial">&larr;</button>
+          <div class="t-prog" aria-hidden="true"><i id="tBar"></i></div>
+          <button class="t-btn" id="tNext" type="button" aria-label="Next testimonial">&rarr;</button>
+        </div>
+      </div>
+      <div class="t-track rv" id="tTrack" tabindex="0" role="region" aria-label="Client testimonials">
+        <figure class="t-card">
+          <div class="t-bubble"><blockquote style="margin:0"><p class="t-q">It was really awesome working with Eikko. She was able to resourcefully get things done and also work with us on a very fast timeline period. In a world of making movies and doing a lot of things on the fly, it takes a really strong team, and working with Eikko helped me to strengthen my team and get everything I need to get done.</p></blockquote><button class="t-more" type="button" aria-expanded="false" hidden>Read more</button></div>
+          <figcaption><img class="t-av" src="assets/t-chris-soriano.jpg" alt="" width="48" height="48"><span><b>Chris Soriano</b><span>Documentary Filmmaker</span></span></figcaption>
+        </figure>
+        <figure class="t-card pending">
+          <div class="t-bubble"><blockquote style="margin:0"><p class="t-q">Placeholder text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></blockquote><button class="t-more" type="button" aria-expanded="false" hidden>Read more</button></div>
+          <figcaption><span class="t-av" aria-hidden="true">T</span><span><b>Tommaso</b><span>Role, Company</span></span></figcaption>
+        </figure>
+        <figure class="t-card pending">
+          <div class="t-bubble"><blockquote style="margin:0"><p class="t-q">Placeholder text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p></blockquote><button class="t-more" type="button" aria-expanded="false" hidden>Read more</button></div>
+          <figcaption><span class="t-av" aria-hidden="true">J</span><span><b>Jon</b><span>Role, Company</span></span></figcaption>
+        </figure>
+        <figure class="t-card pending">
+          <div class="t-bubble"><blockquote style="margin:0"><p class="t-q">Placeholder text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></blockquote><button class="t-more" type="button" aria-expanded="false" hidden>Read more</button></div>
+          <figcaption><span class="t-av" aria-hidden="true">K</span><span><b>Kunal</b><span>Role, Company</span></span></figcaption>
+        </figure>
+        <figure class="t-card pending">
+          <div class="t-bubble"><blockquote style="margin:0"><p class="t-q">Placeholder text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p></blockquote><button class="t-more" type="button" aria-expanded="false" hidden>Read more</button></div>
+          <figcaption><span class="t-av" aria-hidden="true">G</span><span><b>Gene</b><span>Role, Company</span></span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section class="book" id="book" aria-labelledby="h-book">
     <div class="wrap"><div class="card rv">
       <div><h2 id="h-book">Thirty minutes on what's not working.</h2><p>Bring the campaign, the domains, the ad account or the reply pile. You leave with a written read of what is broken and what it would take.</p>
@@ -406,12 +482,22 @@ tabs.addEventListener('click',e=>{if(e.target.closest('a')){tabs.classList.remov
 /* scrollspy on the anchor tabs */
 const links=[...tabs.querySelectorAll('a[href^="#"]')];
 const spy=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){links.forEach(a=>a.setAttribute('aria-current',String(a.getAttribute('href')==='#'+en.target.id)))}})},{rootMargin:'-40% 0px -55% 0px'});
-['work','systems','tools','about'].forEach(id=>spy.observe(document.getElementById(id)));
+['work','tools','about','testimonials'].forEach(id=>spy.observe(document.getElementById(id)));
 /* reveal: visible at rest, entrance is enhancement */
 const rv=new IntersectionObserver(es=>{es.forEach((en,i)=>{if(en.isIntersecting){en.target.classList.add('in');rv.unobserve(en.target)}})},{threshold:.15});
 document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*40+'ms';rv.observe(el)});
 /* safety: nothing stays hidden if the observer never fires */
 setTimeout(()=>document.querySelectorAll('.rv').forEach(el=>el.classList.add('in')),1800);
+/* testimonials: read more only where the quote is clamped; arrows + progress follow the track's own scroll */
+(()=>{const tr=document.getElementById('tTrack');if(!tr)return;
+const prev=document.getElementById('tPrev'),next=document.getElementById('tNext'),bar=document.getElementById('tBar');
+const check=()=>tr.querySelectorAll('.t-card').forEach(c=>{if(c.classList.contains('open'))return;const q=c.querySelector('.t-q'),b=c.querySelector('.t-more');b.hidden=q.scrollHeight<=q.clientHeight+2});
+tr.addEventListener('click',e=>{const b=e.target.closest('.t-more');if(!b)return;const c=b.closest('.t-card'),o=c.classList.toggle('open');b.setAttribute('aria-expanded',String(o));b.textContent=o?'Show less':'Read more'});
+let raf=0;const sync=()=>{raf=0;const max=tr.scrollWidth-tr.clientWidth,x=tr.scrollLeft,vis=tr.clientWidth/tr.scrollWidth;bar.style.setProperty('--p',max>0?Math.max(vis,Math.min(1,vis+(1-vis)*x/max)).toFixed(3):1);prev.disabled=x<4;next.disabled=x>max-4};
+tr.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(sync)},{passive:true});
+const step=d=>{const c=tr.querySelector('.t-card');const w=c.getBoundingClientRect().width+24;tr.scrollBy({left:d*w,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})};
+prev.addEventListener('click',()=>step(-1));next.addEventListener('click',()=>step(1));
+addEventListener('resize',()=>{check();sync()});(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{check();sync()});check();sync()})();
 /* the sweep: nodes travel the rail once per session */
 try{if(!sessionStorage.getItem('eikko-sweep')){document.querySelector('.lockup').classList.add('intro');const rail=document.getElementById('rail');rail.style.setProperty('--travel',(rail.offsetWidth-44)+'px');rail.classList.add('sweep');sessionStorage.setItem('eikko-sweep','1')}}catch(e){}
 </script>
