@@ -149,7 +149,7 @@ section.block{padding:clamp(56px,8vw,96px) 0 0}
 .cell.tint{background:var(--accent-100);border-color:transparent}
 .cell.flow{grid-row:span 2;justify-content:flex-start;gap:24px}
 .flowchart{font:500 13px/1.7 var(--mono);color:var(--fg-2)}
-.flowchart .flow-row{display:flex;align-items:center;gap:2px;margin-bottom:6px}
+.flowchart .flow-row{display:flex;flex-wrap:wrap;align-items:center;gap:2px;margin-bottom:6px}
 .flowchart .flow-row:last-child{margin-bottom:0}
 .flowchart span{display:inline-block;border:1px solid var(--line);padding:2px 10px;margin:2px 0}
 .flowchart .arr{border:0;padding:0 4px;color:var(--fg-3)}
@@ -362,12 +362,15 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     <div class="wrap">
       <div class="sec-head rv"><h2 id="h-sys">Systems</h2><p>What runs underneath every engagement. Each one is written down, so the client can read it, and logged, so it can be audited.</p></div>
       <div class="bento">
-        <div class="cell flow rv"><div><h3>AI automations</h3><p>Four workflows that move data between tools without anyone touching it.</p></div>
+        <div class="cell flow rv"><div><h3>AI automations</h3><p>Seven workflows that move data between tools without anyone touching it.</p></div>
           <div class="flowchart">
             <div class="flow-row"><span>Smartlead</span><span class="arr">→</span><span>Pipedrive</span></div>
             <div class="flow-row"><span>Calendly</span><span class="arr">→</span><span>Pipedrive</span></div>
             <div class="flow-row"><span>PlusVibe</span><span class="arr">→</span><span>Google Sheets</span></div>
             <div class="flow-row"><span>Outbound tools</span><span class="arr">→</span><span>Custom dashboard per client</span></div>
+            <div class="flow-row"><span>Hermes</span><span class="arr">→</span><span>Telegram</span><span class="arr">→</span><span>System built</span></div>
+            <div class="flow-row"><span>Claude Code</span><span class="arr">→</span><span>GitHub</span><span class="arr">→</span><span>System integration</span></div>
+            <div class="flow-row"><span>PlusVibe</span><span class="arr">→</span><span>Slack positive-reply alerts</span></div>
           </div></div>
         <div class="cell accent rv"><h3>Deliverability monitoring</h3><p>Campaign deliverability, domain and mailbox monitoring, and debugging DNS and CNAME records before problems spread.</p></div>
         <div class="cell tint rv"><h3>Lead Magnet</h3><p>Sources and enriches prospects automatically using Apollo, Apify, Google Search, Gojiberry and Lemlist.</p></div>
